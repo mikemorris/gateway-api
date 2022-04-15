@@ -197,6 +197,10 @@ const (
 	//
 	// * "Accepted"
 	//
+	// Possible reasons for this condition to be False are:
+	//
+	// * "NotAllowedByListeners"
+	//
 	// Controllers may raise this condition with other reasons,
 	// but should prefer to use the reasons listed above to improve
 	// interoperability.
@@ -227,6 +231,11 @@ const (
 	// This reason is used with the "Accepted" condition when the Route has been
 	// accepted by the Gateway.
 	RouteReasonAccepted RouteConditionReason = "Accepted"
+
+	// This reason is used with the "Accepted" condition when the route has not
+	// been accepted by a Gateway because the Gateway had no Listener whose
+	// allowedRoutes criteria permit the route
+	RouteReasonNotAllowedByListeners RouteConditionReason = "NotAllowedByListeners"
 
 	// This reason is used with the "ResolvedRefs" condition when the condition
 	// is true.
